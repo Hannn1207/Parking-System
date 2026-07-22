@@ -79,15 +79,16 @@ export const App: React.FC = () => {
       // Vehicle type filter
       if (filters.vehicleType !== 'all' && spot.type !== filters.vehicleType) return false;
 
-      // Search query filter (matches spot code, license plate, or driver name)
+      // Search query filter (matches spot code, license plate, driver name, or vehicle size/type)
       if (filters.searchQuery.trim()) {
         const query = filters.searchQuery.toLowerCase().trim();
         const spotCodeMatch = spot.code.toLowerCase().includes(query);
+        const typeMatch = spot.type.toLowerCase().includes(query) || getVehicleTypeName(spot.type).toLowerCase().includes(query);
         const activeBooking = bookings.find((b) => b.spotId === spot.id && b.status === 'active');
         const plateMatch = activeBooking?.licensePlate.toLowerCase().includes(query);
         const driverMatch = activeBooking?.driverName.toLowerCase().includes(query);
 
-        return spotCodeMatch || plateMatch || driverMatch;
+        return spotCodeMatch || typeMatch || plateMatch || driverMatch;
       }
 
       return true;

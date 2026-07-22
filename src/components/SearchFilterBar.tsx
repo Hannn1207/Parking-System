@@ -45,7 +45,25 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
 
       {/* Filter Options */}
       <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', flex: '1 1 auto' }}>
-
+        {/* Vehicle Size / Type Select */}
+        <div style={{ minWidth: '170px' }}>
+          <select
+            className="form-select"
+            value={filters.vehicleType}
+            onChange={(e) =>
+              onFilterChange({
+                ...filters,
+                vehicleType: e.target.value as VehicleType | 'all'
+              })
+            }
+          >
+            <option value="all">🚗 Semua Ukuran</option>
+            <option value="compact">🚗 Compact (Kecil)</option>
+            <option value="sedan">🚘 Sedan / Hatchback</option>
+            <option value="suv">🚙 SUV / MPV</option>
+            <option value="ev">⚡ EV Charger</option>
+          </select>
+        </div>
 
         {/* Status Select */}
         <div style={{ minWidth: '150px' }}>
