@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Production / temporary build files
+dist/
+build/
+*.log
+
+# Misc & OS
+.DS_Store
+*.pem
+.env*.local

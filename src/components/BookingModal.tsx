@@ -70,7 +70,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             right: '20px',
             background: 'transparent',
             border: 'none',
-            color: '#9ca3af',
+            color: 'var(--text-muted)',
             cursor: 'pointer'
           }}
         >
@@ -96,18 +96,18 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <CheckCircle size={36} color="#10b981" />
             </div>
 
-            <h2 style={{ fontSize: '1.4rem', color: '#f3f4f6', marginBottom: '6px' }}>
+            <h2 style={{ fontSize: '1.4rem', color: 'var(--text-main)', marginBottom: '6px' }}>
               Pemesanan Berhasil!
             </h2>
-            <p style={{ color: '#9ca3af', fontSize: '0.9rem', marginBottom: '20px' }}>
-              Tempat parkir <strong style={{ color: '#34d399' }}>{createdBooking.spotCode}</strong> (Lantai {createdBooking.floor}) telah berhasil dipesan.
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '20px' }}>
+              Tempat parkir <strong style={{ color: 'var(--color-available)' }}>{createdBooking.spotCode}</strong> (Lantai {createdBooking.floor}) telah berhasil dipesan.
             </p>
 
             {/* Receipt Box */}
             <div
               style={{
-                background: 'rgba(15, 23, 42, 0.8)',
-                border: '1px dashed rgba(255, 255, 255, 0.2)',
+                background: 'var(--bg-card-hover)',
+                border: '1px dashed var(--border-color)',
                 borderRadius: '14px',
                 padding: '18px',
                 textAlign: 'left',
@@ -116,15 +116,15 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                <span style={{ color: '#9ca3af' }}>Kode Tempat Parkir:</span>
-                <span style={{ fontWeight: 700, color: '#f3f4f6' }}>{createdBooking.spotCode}</span>
+                <span style={{ color: 'var(--text-muted)' }}>Kode Tempat Parkir:</span>
+                <span style={{ fontWeight: 700, color: 'var(--text-main)' }}>{createdBooking.spotCode}</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                <span style={{ color: '#9ca3af' }}>Nama Pengemudi:</span>
-                <span style={{ fontWeight: 600, color: '#f3f4f6' }}>{createdBooking.driverName}</span>
+                <span style={{ color: 'var(--text-muted)' }}>Nama Pengemudi:</span>
+                <span style={{ fontWeight: 600, color: 'var(--text-main)' }}>{createdBooking.driverName}</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                <span style={{ color: '#9ca3af' }}>Plat Nomor:</span>
+                <span style={{ color: 'var(--text-muted)' }}>Plat Nomor:</span>
                 <span
                   style={{
                     fontWeight: 700,
@@ -139,8 +139,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 </span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                <span style={{ color: '#9ca3af' }}>Durasi Dipesan:</span>
-                <span style={{ fontWeight: 600, color: '#60a5fa' }}>{durationHours} Jam ({createdBooking.durationMinutes} Menit)</span>
+                <span style={{ color: 'var(--text-muted)' }}>Durasi Dipesan:</span>
+                <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>{durationHours} Jam ({createdBooking.durationMinutes} Menit)</span>
               </div>
               <div
                 style={{
@@ -148,12 +148,12 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   justifyContent: 'space-between',
                   marginTop: '12px',
                   paddingTop: '10px',
-                  borderTop: '1px solid rgba(255,255,255,0.1)',
+                  borderTop: '1px solid var(--border-color)',
                   fontWeight: 700
                 }}
               >
-                <span style={{ color: '#f3f4f6' }}>Estimasi Biaya:</span>
-                <span style={{ color: '#34d399', fontSize: '1.05rem' }}>
+                <span style={{ color: 'var(--text-main)' }}>Estimasi Biaya:</span>
+                <span style={{ color: 'var(--color-available)', fontSize: '1.05rem' }}>
                   {formatRupiah(createdBooking.estimatedCost)}
                 </span>
               </div>
@@ -179,13 +179,13 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   justifyContent: 'center'
                 }}
               >
-                <Car color="#3b82f6" size={22} />
+                <Car color="var(--color-primary)" size={22} />
               </div>
               <div>
-                <h2 style={{ fontSize: '1.25rem', color: '#f3f4f6' }}>
+                <h2 style={{ fontSize: '1.25rem', color: 'var(--text-main)', fontWeight: 800 }}>
                   Pemesanan Tempat Parkir
                 </h2>
-                <div style={{ fontSize: '0.85rem', color: '#34d399', fontWeight: 600 }}>
+                <div style={{ fontSize: '0.85rem', color: 'var(--color-available)', fontWeight: 600 }}>
                   Spot {spot.code} • Lantai {spot.floor} ({formatRupiah(spot.hourlyRate)}/jam)
                 </div>
               </div>
@@ -195,7 +195,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               {/* Nama Pengemudi */}
               <div className="form-group">
                 <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <User size={15} color="#9ca3af" />
+                  <User size={15} color="var(--text-muted)" />
                   Nama Pengemudi / Pemilik
                 </label>
                 <input
@@ -211,7 +211,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               {/* Plat Nomor */}
               <div className="form-group">
                 <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <ShieldCheck size={15} color="#9ca3af" />
+                  <ShieldCheck size={15} color="var(--text-muted)" />
                   Nomor Kendaraan (Plat Nomor)
                 </label>
                 <input
@@ -243,7 +243,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               {/* Durasi Parkir */}
               <div className="form-group">
                 <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <Clock size={15} color="#9ca3af" />
+                  <Clock size={15} color="var(--text-muted)" />
                   Durasi Parkir (Jam)
                 </label>
                 <div style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
@@ -256,9 +256,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                         flex: 1,
                         padding: '8px',
                         borderRadius: '8px',
-                        border: durationHours === hr ? '1px solid #3b82f6' : '1px solid rgba(255,255,255,0.1)',
-                        backgroundColor: durationHours === hr ? 'rgba(59, 130, 246, 0.25)' : 'rgba(15, 23, 42, 0.6)',
-                        color: durationHours === hr ? '#60a5fa' : '#9ca3af',
+                        border: durationHours === hr ? '1px solid var(--color-primary)' : '1px solid var(--border-color)',
+                        backgroundColor: durationHours === hr ? 'rgba(59, 130, 246, 0.15)' : 'var(--bg-card)',
+                        color: durationHours === hr ? 'var(--color-primary)' : 'var(--text-muted)',
                         fontWeight: 600,
                         cursor: 'pointer',
                         fontSize: '0.85rem'
@@ -294,12 +294,12 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 }}
               >
                 <div>
-                  <div style={{ fontSize: '0.8rem', color: '#9ca3af' }}>Estimasi Biaya Total:</div>
-                  <div style={{ fontSize: '1.2rem', fontWeight: 700, color: '#34d399' }}>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Estimasi Biaya Total:</div>
+                  <div style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--color-available)' }}>
                     {formatRupiah(estimatedCost)}
                   </div>
                 </div>
-                <div style={{ textAlign: 'right', fontSize: '0.75rem', color: '#9ca3af' }}>
+                <div style={{ textAlign: 'right', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                   Tarif: {formatRupiah(spot.hourlyRate)} / jam
                 </div>
               </div>

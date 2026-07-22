@@ -23,7 +23,7 @@ export const HistoryModal: React.FC<HistoryModalProps> = ({ bookings, onClose })
             right: '20px',
             background: 'transparent',
             border: 'none',
-            color: '#9ca3af',
+            color: 'var(--text-muted)',
             cursor: 'pointer'
           }}
         >
@@ -46,18 +46,18 @@ export const HistoryModal: React.FC<HistoryModalProps> = ({ bookings, onClose })
             <History color="#8b5cf6" size={22} />
           </div>
           <div>
-            <h2 style={{ fontSize: '1.25rem', color: '#f3f4f6' }}>
+            <h2 style={{ fontSize: '1.25rem', color: 'var(--text-main)', fontWeight: 800 }}>
               Riwayat Transaksi Parkir Selesai
             </h2>
-            <div style={{ fontSize: '0.85rem', color: '#9ca3af' }}>
+            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
               Total Sesi Selesai: {completedBookings.length}
             </div>
           </div>
         </div>
 
         {completedBookings.length === 0 ? (
-          <div style={{ textAlign: 'center', padding: '40px 20px', color: '#9ca3af' }}>
-            <Car size={36} color="#4b5563" style={{ marginBottom: '10px' }} />
+          <div style={{ textAlign: 'center', padding: '40px 20px', color: 'var(--text-muted)' }}>
+            <Car size={36} color="var(--text-dim)" style={{ marginBottom: '10px' }} />
             <p>Belum ada riwayat sesi parkir yang diselesaikan.</p>
           </div>
         ) : (
@@ -66,8 +66,8 @@ export const HistoryModal: React.FC<HistoryModalProps> = ({ bookings, onClose })
               <div
                 key={b.id}
                 style={{
-                  background: 'rgba(15, 23, 42, 0.6)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  background: 'var(--bg-card-hover)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '12px',
                   padding: '14px 18px',
                   display: 'flex',
@@ -79,7 +79,7 @@ export const HistoryModal: React.FC<HistoryModalProps> = ({ bookings, onClose })
               >
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ fontWeight: 700, color: '#f3f4f6' }}>Spot {b.spotId}</span>
+                    <span style={{ fontWeight: 700, color: 'var(--text-main)' }}>Spot {b.spotId}</span>
                     <span className="badge badge-primary">Lantai {b.floor}</span>
                     <span
                       style={{
@@ -95,32 +95,26 @@ export const HistoryModal: React.FC<HistoryModalProps> = ({ bookings, onClose })
                       {b.licensePlate}
                     </span>
                   </div>
-                  <div style={{ fontSize: '0.8rem', color: '#9ca3af', marginTop: '4px' }}>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '4px' }}>
                     Pengemudi: <strong>{b.driverName}</strong>
                   </div>
-                  <div style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '2px' }}>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)', marginTop: '2px' }}>
                     Mulai: {formatDateTime(b.startTime)} • Selesai: {b.endTime ? formatDateTime(b.endTime) : '-'}
                   </div>
                 </div>
 
                 <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontSize: '0.75rem', color: '#34d399', display: 'flex', alignItems: 'center', gap: '4px', justifyContent: 'flex-end' }}>
-                    <CheckCircle size={12} /> Selesai
-                  </div>
-                  <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#f3f4f6', marginTop: '2px' }}>
+                  <div style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--color-available)' }}>
                     {formatRupiah(b.finalPaidAmount || b.initialEstimatedCost)}
                   </div>
+                  <span className="badge badge-available" style={{ marginTop: '4px' }}>
+                    <CheckCircle size={12} style={{ marginRight: '4px' }} /> Selesai
+                  </span>
                 </div>
               </div>
             ))}
           </div>
         )}
-
-        <div style={{ marginTop: '20px', textAlign: 'right' }}>
-          <button onClick={onClose} className="btn btn-secondary">
-            Tutup
-          </button>
-        </div>
       </div>
     </div>
   );

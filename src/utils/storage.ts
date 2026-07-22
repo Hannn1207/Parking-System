@@ -64,8 +64,8 @@ export const generateInitialBookings = (spots: ParkingSpot[]): Booking[] => {
       driverName: 'Budi Santoso',
       licensePlate: 'B 1452 RFS',
       vehicleType: 'sedan',
-      startTime: now - 35 * 60 * 1000, // started 35 mins ago
-      durationMinutes: 60, // 1 hour duration (25 mins left)
+      startTime: now - 35 * 60 * 1000,
+      durationMinutes: 60,
       hourlyRate: 7000,
       initialEstimatedCost: 7000,
       status: 'active'
@@ -77,8 +77,8 @@ export const generateInitialBookings = (spots: ParkingSpot[]): Booking[] => {
       driverName: 'Siti Rahma',
       licensePlate: 'B 8899 EV',
       vehicleType: 'ev',
-      startTime: now - 70 * 60 * 1000, // started 70 mins ago
-      durationMinutes: 60, // 60 mins duration (10 mins OVERTIME!)
+      startTime: now - 70 * 60 * 1000,
+      durationMinutes: 60, // 
       hourlyRate: 15000,
       initialEstimatedCost: 15000,
       status: 'active'
@@ -90,8 +90,8 @@ export const generateInitialBookings = (spots: ParkingSpot[]): Booking[] => {
       driverName: 'Andi Wijaya',
       licensePlate: 'D 3341 XYZ',
       vehicleType: 'suv',
-      startTime: now - 15 * 60 * 1000, // started 15 mins ago
-      durationMinutes: 120, // 2 hours
+      startTime: now - 15 * 60 * 1000,
+      durationMinutes: 120,
       hourlyRate: 10000,
       initialEstimatedCost: 20000,
       status: 'active'
